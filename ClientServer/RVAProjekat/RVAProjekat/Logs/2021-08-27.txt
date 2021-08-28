@@ -1,0 +1,39 @@
+2021-08-27 20:30:28,017 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-27 20:30:28,049 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-27 20:31:34,722 [16] INFO  App  
+ Ulogovan korisnik. 
+ 
+2021-08-27 21:13:07,437 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-27 21:13:07,448 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-27 21:14:54,273 [13] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-27 21:14:58,644 [4] INFO  App  
+ Korisnik admin brise artikal Golf 2. 
+ 
+2021-08-27 21:15:28,569 [4] INFO  App  
+ Korisnik admin je ocijenio korisnika petar. 
+ 
+2021-08-27 21:15:43,440 [17] INFO  App  
+ Korisnik admin zeli da kupi proizvod od korisnika Petar. 
+ 
+2021-08-27 21:15:56,223 [17] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-08-27 21:16:05,582 [5] INFO  App  
+ Korisnik petar odbija korisniku admin kupovinu artikla. 
+ 
+2021-08-27 21:16:06,517 [17] INFO  App  
+ Korisnik petar odbija korisniku marko kupovinu artikla. 
+ 
+2021-08-27 21:16:08,783 [17] INFO  App  
+ Korisnik petar odbija korisniku marko kupovinu artikla. 
+ 

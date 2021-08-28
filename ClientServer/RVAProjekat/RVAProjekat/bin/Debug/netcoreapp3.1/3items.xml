@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Item>
+    <Id>0</Id>
+    <Fiksno>false</Fiksno>
+    <PrihvatamZamjenu>false</PrihvatamZamjenu>
+    <UserId>3</UserId>
+  </Item>
+  <Item>
+    <Id>1</Id>
+    <Naslov>IPhone</Naslov>
+    <Kategorija>Telefoni</Kategorija>
+    <NudimTrazim>nudim</NudimTrazim>
+    <Cijena>1200</Cijena>
+    <Fiksno>true</Fiksno>
+    <PrihvatamZamjenu>true</PrihvatamZamjenu>
+    <TekstOglasa>Kao nov</TekstOglasa>
+    <MjestoGrad>Gacko</MjestoGrad>
+    <Telefon>066260748</Telefon>
+    <UserId>3</UserId>
+  </Item>
+  <Item>
+    <Id>3</Id>
+    <Naslov>Golf 2</Naslov>
+    <Kategorija>Automobili</Kategorija>
+    <NudimTrazim>trazim</NudimTrazim>
+    <Cijena>2000</Cijena>
+    <Fiksno>false</Fiksno>
+    <PrihvatamZamjenu>true</PrihvatamZamjenu>
+    <TekstOglasa>1984</TekstOglasa>
+    <MjestoGrad>Prnjavor</MjestoGrad>
+    <Telefon>5555656</Telefon>
+    <UserId>3</UserId>
+  </Item>
+</ArrayOfItem>

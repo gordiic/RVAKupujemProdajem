@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <Id>1</Id>
+    <Ime>Nebojsa</Ime>
+    <Prezime>Gordic</Prezime>
+    <KorisnickoIme>admin</KorisnickoIme>
+    <Lozinka>admin</Lozinka>
+    <Email>admin@gmail.com</Email>
+    <Uloga>admin</Uloga>
+  </User>
+  <User>
+    <Id>2</Id>
+    <Ime>Milan</Ime>
+    <Prezime>Milanovic</Prezime>
+    <KorisnickoIme>milan</KorisnickoIme>
+    <Lozinka>milan</Lozinka>
+    <Email>milan@gmail.com</Email>
+    <Uloga>user</Uloga>
+  </User>
+  <User>
+    <Id>3</Id>
+    <Ime>Petar</Ime>
+    <Prezime>Petrovic</Prezime>
+    <KorisnickoIme>petar</KorisnickoIme>
+    <Lozinka>petar</Lozinka>
+    <Email>petar@gmail.com</Email>
+    <Uloga>user</Uloga>
+  </User>
+</ArrayOfUser>

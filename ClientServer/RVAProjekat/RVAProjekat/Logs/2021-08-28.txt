@@ -1,0 +1,318 @@
+2021-08-28 11:15:14,786 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 11:15:14,818 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 11:26:18,073 [24] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 11:27:48,333 [30] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:03:05,698 [30] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:03:05,698 [8] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:06:59,365 [5] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:08:30,964 [25] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:12:26,586 [11] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:12:41,919 [10] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 12:14:30,354 [10] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:14:46,136 [25] INFO  App  
+ Korisnik admin odobrava korisniku petar kupovinu artikla. 
+ 
+2021-08-28 12:16:56,146 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 12:16:56,186 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 12:19:15,951 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:19:27,258 [13] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 12:19:48,080 [9] INFO  App  
+ Korisnik marko se ulogovao na sajt. 
+ 
+2021-08-28 12:21:47,092 [19] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:22:04,781 [4] INFO  App  
+ Korisnik admin odobrava korisniku petar kupovinu artikla. 
+ 
+2021-08-28 12:23:39,270 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 12:23:39,333 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 12:24:12,370 [13] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:24:25,318 [13] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 12:24:30,389 [14] INFO  App  
+ Korisnik admin odobrava korisniku petar kupovinu artikla. 
+ 
+2021-08-28 12:28:20,341 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 12:28:20,378 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 12:28:46,352 [12] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:28:58,480 [13] INFO  App  
+ Korisnik admin odbija korisniku petar kupovinu artikla. 
+ 
+2021-08-28 12:29:01,820 [13] INFO  App  
+ Korisnik admin odbija korisniku marko kupovinu artikla. 
+ 
+2021-08-28 12:31:08,387 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 12:31:08,443 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 12:31:34,882 [12] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 12:31:54,524 [13] INFO  App  
+ Korisnik admin odbija korisniku marko kupovinu artikla. 
+ 
+2021-08-28 12:32:00,647 [14] INFO  App  
+ Korisnik admin odbija korisniku petar kupovinu artikla. 
+ 
+2021-08-28 13:23:34,914 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 13:23:34,934 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 13:24:26,996 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 13:24:47,475 [6] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 13:24:51,350 [12] INFO  App  
+ Korisnik admin odbija korisniku petar kupovinu artikla. 
+ 
+2021-08-28 13:25:54,942 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 13:25:54,959 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 13:32:19,222 [10] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 13:32:45,149 [14] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 13:32:48,586 [14] INFO  App  
+ Korisnik admin odbija korisniku petar kupovinu artikla. 
+ 
+2021-08-28 13:35:29,340 [17] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-08-28 13:37:55,671 [19] INFO  App  
+ Korisnik petar brise obavjestenje. 
+ 
+2021-08-28 13:49:02,201 [7] INFO  App  
+ Korisnik petar je izmijenio svoj profil. 
+ 
+2021-08-28 13:57:43,990 [25] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-08-28 14:03:14,263 [6] INFO  App  
+ Korisnik petar objavljuje novi artikal aa. 
+ 
+2021-08-28 14:06:23,999 [21] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 14:50:09,319 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 14:50:09,356 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 14:51:34,019 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 14:51:55,809 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 14:52:32,858 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 14:52:32,895 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 14:52:46,091 [4] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 14:55:55,822 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 14:55:55,900 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 14:56:43,267 [8] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 14:58:41,295 [14] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 15:02:30,157 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 15:02:30,190 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 15:03:20,631 [6] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 15:03:56,837 [16] INFO  App  
+ Korisnik admin je izmijenio svoj profil. 
+ 
+2021-08-28 15:04:14,243 [15] INFO  App  
+ Korisnik admin je izmijenio svoj profil. 
+ 
+2021-08-28 15:04:46,487 [14] INFO  App  
+ Profil korisnika marko je obrisan. 
+ 
+2021-08-28 15:10:05,242 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 15:10:05,300 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 15:10:56,640 [8] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 15:11:13,860 [13] INFO  App  
+ Korisnik admin zeli da kupi proizvod od korisnika Petar. 
+ 
+2021-08-28 15:12:54,725 [16] INFO  App  
+ Korisnik admin zeli da kupi proizvod od korisnika Marko. 
+ 
+2021-08-28 15:13:15,453 [16] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-28 15:13:36,643 [14] INFO  App  
+ Korisnik admin odbija korisniku petar kupovinu artikla. 
+ 
+2021-08-28 15:14:33,503 [15] INFO  App  
+ Korisnik marko se ulogovao na sajt. 
+ 
+2021-08-28 15:14:45,590 [15] INFO  App  
+ Korisnik marko brise obavjestenje . 
+ 
+2021-08-28 15:15:35,143 [26] INFO  App  
+ Korisnik marko objavljuje novi artikal aaa. 
+ 
+2021-08-28 15:16:55,039 [7] INFO  App  
+ Korisnik marko vrsi izmjenu artikla Masina za ves Gorenje. 
+ 
+2021-08-28 15:17:36,465 [31] INFO  App  
+ Korisnik marko brise artikal Masina za ves Gorenje. 
+ 
+2021-08-28 15:31:26,061 [27] INFO  App  
+ Korisnik marko brise artikal Arduino. 
+ 
+2021-08-28 15:31:40,546 [27] INFO  App  
+ Korisnik marko brise artikal aaa. 
+ 
+2021-08-28 15:35:32,998 [30] INFO  App  
+ Korisnik marko je ocijenio korisnika admin. 
+ 
+2021-08-28 15:43:39,103 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 15:43:39,130 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 16:01:20,635 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 16:01:20,652 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 16:01:20,653 [1] ERROR App  
+ Starting the Host 
+ 
+2021-08-28 16:06:02,744 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 16:06:02,768 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 16:06:02,769 [1] ERROR App  
+ Starting the Host 
+ 
+2021-08-28 16:08:13,560 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 16:08:13,561 [9] ERROR App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 16:22:40,121 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 16:22:40,137 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 16:24:26,766 [11] ERROR App  
+ Pokusaj brisanja nepostojeceg korisnika. 
+ 
+2021-08-28 17:00:14,357 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 17:00:14,373 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 17:00:55,439 [4] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-28 17:03:01,786 [9] INFO  App  
+ Korisnik admin brise artikal Golf 2. 
+ 
+2021-08-28 17:03:37,331 [5] INFO  App  
+ Korisnik admin brise artikal Xiaomi note 9. 
+ 
+2021-08-28 18:57:52,706 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 18:57:52,742 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 19:52:41,477 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 19:52:41,513 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-28 20:15:53,226 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-28 20:15:53,279 [1] INFO  App  
+ Starting the Host 
+ 
