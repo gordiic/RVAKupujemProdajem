@@ -1,0 +1,75 @@
+2021-08-29 13:35:41,791 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 13:35:41,824 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 13:40:56,679 [14] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-29 14:13:29,240 [7] INFO  App  
+ Profil korisnika petar je obrisan. 
+ 
+2021-08-29 14:13:31,157 [11] INFO  App  
+ Profil korisnika marko je obrisan. 
+ 
+2021-08-29 14:24:41,863 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 14:24:41,899 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 14:27:47,172 [12] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-29 14:31:38,052 [7] INFO  App  
+ Korisnik admin objavljuje novi artikal Golf 2. 
+ 
+2021-08-29 14:46:50,104 [4] INFO  App  
+ Korisnik admin objavljuje novi artikal Golf 2. 
+ 
+2021-08-29 14:50:09,438 [12] INFO  App  
+ Korisnik admin objavljuje novi artikal Xiaomi note 9. 
+ 
+2021-08-29 15:36:45,400 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 15:36:45,435 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 15:39:54,029 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-29 17:19:51,768 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 17:19:51,782 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 17:27:03,868 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 17:27:03,884 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 17:27:40,423 [13] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-29 17:28:03,925 [23] INFO  App  
+ Korisnik admin objavljuje novi artikal aaaaa. 
+ 
+2021-08-29 17:37:34,979 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-29 17:37:34,990 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-29 17:38:50,798 [13] INFO  App  
+ Korisnik kk se registrovao na sajt. 
+ 
+2021-08-29 17:40:42,474 [19] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-29 17:41:38,702 [23] INFO  App  
+ Korisnik admin je ocijenio korisnika petar. 
+ 

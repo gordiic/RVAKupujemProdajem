@@ -1,4 +1,5 @@
-﻿using RVAProjekat.Models;
+﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RVAProjekat.AppData
 {
-	public class DataBaseNotificationProvider
+	public class DataBaseNotificationProvider : INotificationProvider
 	{
-		public static void AddObavjestenje(Obavjestenje obavjestenje)
+		public void AddObavjestenje(Obavjestenje obavjestenje)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -17,7 +18,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static List<Obavjestenje> RetrieveAllObavjestenja()
+		public List<Obavjestenje> RetrieveAllObavjestenja()
 		{
 			List<Obavjestenje> obavjestenja;
 			using (var db = new DataBaseContext())
@@ -28,7 +29,7 @@ namespace RVAProjekat.AppData
 			}
 			return obavjestenja;
 		}
-		public static List<Obavjestenje> FindObavjestenjaByUserId(int id)
+		public List<Obavjestenje> FindObavjestenjaByUserId(int id)
 		{
 			List<Obavjestenje> obavjestenja = null;
 			using (var db = new DataBaseContext())
@@ -43,7 +44,7 @@ namespace RVAProjekat.AppData
 				obavjestenja = new List<Obavjestenje>();
 			return obavjestenja;
 		}
-		public static Obavjestenje FindObavjestenjeById(int id)
+		public Obavjestenje FindObavjestenjeById(int id)
 		{
 			Obavjestenje obavjestenje = null;
 			using (var db = new DataBaseContext())
@@ -52,7 +53,7 @@ namespace RVAProjekat.AppData
 			}
 			return obavjestenje;
 		}
-		public static bool DeleteObavjestenje(int id)
+		public bool DeleteObavjestenje(int id)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -66,7 +67,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static void RemoveAllNorificationsFromTable()
+		public void RemoveAllNorificationsFromTable()
 		{
 			List<Obavjestenje> notifications = RetrieveAllObavjestenja();
 			using (var db = new DataBaseContext())
@@ -79,7 +80,7 @@ namespace RVAProjekat.AppData
 			}
 
 		}
-		public static void DeleteUserNotifications(int id)
+		public void DeleteUserNotifications(int id)
 		{
 			List<Obavjestenje> notifications = FindObavjestenjaByUserId(id);
 			List<Obavjestenje> notifications2 = null;

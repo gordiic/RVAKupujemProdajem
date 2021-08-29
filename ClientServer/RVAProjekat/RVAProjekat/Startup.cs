@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RVAProjekat.AppData;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.InicijalizacijaZaProlaz;
 using RVAProjekat.Logger;
 
@@ -20,9 +21,14 @@ namespace RVAProjekat
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
+            //Postavljanje strategije
+            UserProviderStrategy.SetStrategy(new DataBaseUserProvider());
+            ItemProviderStrategy.SetStrategy(new DataBaseItemProvider());
+            MarkProviderStrategy.SetStrategy(new DataBaseMarkProvider());
+            NotificationProviderStrategy.SetStrategy(new DataBaseNotificationProvider());
             //Inicijalizacija podataka
-            InitializationOfData.Initialize();
+            InitializationOfData i = new InitializationOfData();
+            i.Initialize();
         }
 
         public IConfiguration Configuration { get; }

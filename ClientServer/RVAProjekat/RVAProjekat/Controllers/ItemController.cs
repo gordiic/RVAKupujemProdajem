@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RVAProjekat.AppData;
+using RVAProjekat.AppData.Strategy;
+using RVAProjekat.AppData.Interfaces;
 using RVAProjekat.Logger;
 using RVAProjekat.Models;
 using System;
@@ -14,6 +16,8 @@ namespace RVAProjekat.Controllers
     public class ItemController : ControllerBase
     {
         private readonly ILoggerManager _logger;
+        private IItemProvider itemProvider = ItemProviderStrategy.GetStrategy();
+		private IUserProvider userProvider = UserProviderStrategy.GetStrategy();
         public ItemController(ILoggerManager logger)
         {
             _logger = logger;
@@ -23,6 +27,7 @@ namespace RVAProjekat.Controllers
         public IActionResult UploadItem([FromBody] Item item)
         {
             int result;
+            item.Id = 0;
             if (!int.TryParse(item.Cijena, out result))
 			{
                 _logger.LogWarning($"Pokusaj postavljanja artikla sa nepravilnim parametrima.  cijena={item.Cijena}");
@@ -35,9 +40,9 @@ namespace RVAProjekat.Controllers
 			}
 			else
 			{
-                DataBaseItemProvider.AddItem(item);           
+                itemProvider.AddItem(item);           
 			}
-            User u = DataBaseUserProvider.FindUserById(item.UserId);
+            User u = userProvider.FindUserById(item.UserId);
             _logger.LogInformation($"Korisnik {u.KorisnickoIme} objavljuje novi artikal {item.Naslov}.");
             return Ok($"Uspjesno ste objavili artikal {item.Naslov}.");
         }
@@ -59,9 +64,9 @@ namespace RVAProjekat.Controllers
             }
             else
             {
-                DataBaseItemProvider.UpdateItem(item);
+                itemProvider.UpdateItem(item);
             }
-            User u = DataBaseUserProvider.FindUserById(item.UserId);
+            User u = userProvider.FindUserById(item.UserId);
 
             _logger.LogInformation($"Korisnik {u.KorisnickoIme} vrsi izmjenu artikla {item.Naslov}.");
 
@@ -72,7 +77,7 @@ namespace RVAProjekat.Controllers
         [Route("get")]
         public IEnumerable<Item> GetUserItems(int id)
         {
-            List<Item>items = DataBaseItemProvider.FindItemsByUserId(id);
+            List<Item>items = itemProvider.FindItemsByUserId(id);
 
             if (items == null)
                 return new List<Item>();
@@ -84,20 +89,20 @@ namespace RVAProjekat.Controllers
         [Route("getAllItems")]
         public IEnumerable<Item> GetAllItems()
         {
-            return DataBaseItemProvider.RetrieveAllItems().ToArray();
+            return itemProvider.RetrieveAllItems().ToArray();
         }
 
         [HttpGet]
         [Route("deleteItem")]
         public string DeleteItem(int id)
         {
-            Item i = DataBaseItemProvider.FindItemById(id);
+            Item i = itemProvider.FindItemById(id);
 
 			if (i != null)
 			{
-                User u = DataBaseUserProvider.FindUserById(i.UserId);
+                User u = userProvider.FindUserById(i.UserId);
                 _logger.LogInformation($"Korisnik {u.KorisnickoIme} brise artikal {i.Naslov}.");
-                DataBaseItemProvider.DeleteItem(id);
+                itemProvider.DeleteItem(id);
                 return $"Uspjesno ste obrisali artikal {i.Naslov}.";
             }
 			else

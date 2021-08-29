@@ -1,4 +1,5 @@
-﻿using RVAProjekat.Models;
+﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace RVAProjekat.AppData
 {
-	public class DataBaseMarkProvider
+	public class DataBaseMarkProvider : IMarkProvider
 	{
 
-		public static void AddOcjena(Ocjena ocjena)
+		public void AddOcjena(Ocjena ocjena)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -17,7 +18,7 @@ namespace RVAProjekat.AppData
 				db.SaveChanges();
 			}
 		}
-		public static List<Ocjena> RetrieveAllMarks()
+		public List<Ocjena> RetrieveAllMarks()
 		{
 			List<Ocjena> marks = null;
 			using (var db = new DataBaseContext())
@@ -31,7 +32,7 @@ namespace RVAProjekat.AppData
 
 			return marks;
 		}
-		public static List<Ocjena> FindOcjeneByUserId(int id)
+		public List<Ocjena> FindOcjeneByUserId(int id)
 		{
 			List<Ocjena> ocjene = null;
 			using (var db = new DataBaseContext())
@@ -45,7 +46,7 @@ namespace RVAProjekat.AppData
 			return ocjene;
 		}
 
-		public static void RemoveAllOcjeneFromTable()
+		public void RemoveAllOcjeneFromTable()
 		{
 			List<Ocjena> marks = RetrieveAllMarks();
 			using (var db = new DataBaseContext())
@@ -58,7 +59,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static void DeleteUserMarks(int id)
+		public void DeleteUserMarks(int id)
 		{
 			List<Ocjena> ocjene = null;
 			using (var db = new DataBaseContext())

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nebojsa\\Desktop\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj": {}
+    "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nebojsa\\Desktop\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj": {
+    "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nebojsa\\Desktop\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
+        "projectUniqueName": "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
         "projectName": "RVAProjekat",
-        "projectPath": "C:\\Users\\Nebojsa\\Desktop\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
+        "projectPath": "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
         "packagesPath": "C:\\Users\\Nebojsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nebojsa\\Desktop\\RVAProjekat\\RVAProjekat\\obj\\",
+        "outputPath": "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

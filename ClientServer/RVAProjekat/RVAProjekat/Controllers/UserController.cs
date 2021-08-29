@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RVAProjekat.AppData;
+using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.Logger;
 using RVAProjekat.Models;
 
@@ -15,6 +17,10 @@ namespace RVAProjekat.Controllers
     public class UserController : ControllerBase
     {
         private readonly ILoggerManager _logger;
+        private IUserProvider userProvider = UserProviderStrategy.GetStrategy();
+        private IItemProvider itemProvider = ItemProviderStrategy.GetStrategy();
+        private IMarkProvider markProvider = MarkProviderStrategy.GetStrategy();
+        private INotificationProvider notificationProvider = NotificationProviderStrategy.GetStrategy();
         public UserController(ILoggerManager logger)
         {
             _logger = logger;
@@ -24,7 +30,7 @@ namespace RVAProjekat.Controllers
         [Route("login")]
         public IActionResult Login([FromBody] User u)
         {
-            List<User> users = DataBaseUserProvider.RetrieveAllUsers();
+            List<User> users = userProvider.RetrieveAllUsers();
             foreach (User user in users)
             {
                 if (user.KorisnickoIme==u.KorisnickoIme)
@@ -54,7 +60,7 @@ namespace RVAProjekat.Controllers
                 return NotFound("Lose uneseni parametri.");
 
             }
-            List<User>users = DataBaseUserProvider.RetrieveAllUsers();
+            List<User>users = userProvider.RetrieveAllUsers();
             u.Uloga = "user";
             u.ProsjecnaOcjena = 0;
             u.BrOcjena = 0;
@@ -70,22 +76,22 @@ namespace RVAProjekat.Controllers
                     return NotFound("Email adresa zauzeta.");
 				}
 			}
-            DataBaseUserProvider.AddUser(u);
+            userProvider.AddUser(u);
             _logger.LogInformation($"Korisnik {u.KorisnickoIme} se registrovao na sajt.");
             return Ok("Uspjesno ste se registrovali.");
         }
         [HttpPost]
         [Route("changeAccount")]
-        public IActionResult ChangeAccount([FromBody] User user)
+        public IActionResult ChangeAccount([FromBody] User u)
         {
-            if (user.Ime == "" || user.KorisnickoIme == "" || user.Lozinka == "" || user.Prezime == "" || user.Email == "")
+            if (u.Ime == "" || u.KorisnickoIme == "" || u.Lozinka == "" || u.Prezime == "" || u.Email == "")
             {
-                _logger.LogWarning($"Nepravilno uneseni parametri pri izmjeni korisnika sa id-om: {user.Id}.");
+                _logger.LogWarning($"Nepravilno uneseni parametri pri izmjeni korisnika sa id-om: {u.Id}.");
                 return NotFound("Lose uneseni parametri.");
 
             }
-            DataBaseUserProvider.UpdateUser(user);
-            _logger.LogInformation($"Korisnik {user.KorisnickoIme} je izmijenio svoj profil.");
+            userProvider.UpdateUser(u);
+            _logger.LogInformation($"Korisnik {u.KorisnickoIme} je izmijenio svoj profil.");
             return Ok("Uspjesno ste izmijenili svoj profil.");
         }
         //getUserById
@@ -93,7 +99,7 @@ namespace RVAProjekat.Controllers
         [Route("getUserById")] //nastaviti
         public User GetUserById(int id)
         {
-            User user = DataBaseUserProvider.FindUserById(id);
+            User user = userProvider.FindUserById(id);
 
             if (user == null)
                 return new User();
@@ -112,7 +118,7 @@ namespace RVAProjekat.Controllers
         [Route("getAllUsers")]
         public IEnumerable<User> GetAllUsers()
         {
-            return DataBaseUserProvider.RetrieveAllUsers().ToArray();
+            return userProvider.RetrieveAllUsers().ToArray();
         }
 
 
@@ -120,16 +126,16 @@ namespace RVAProjekat.Controllers
         [Route("deleteUser")]
         public string DeleteUser(int id)
         {
-            User user = DataBaseUserProvider.FindUserById(id);
+            User user = userProvider.FindUserById(id);
 			if (user == null)
 			{
                 _logger.LogError($"Pokusaj brisanja nepostojeceg korisnika.");
                 return $"Ne mozete obrisati korisnika koji ne postoji.";
             }
-            DataBaseUserProvider.DeleteUser(id);
-            DataBaseItemProvider.DeleteUserItems(id);
-            DataBaseMarkProvider.DeleteUserMarks(id);
-            DataBaseNotificationProvider.DeleteUserNotifications(id);
+            userProvider.DeleteUser(id);
+            itemProvider.DeleteUserItems(id);
+            markProvider.DeleteUserMarks(id);
+            notificationProvider.DeleteUserNotifications(id);
             _logger.LogInformation($"Profil korisnika {user.KorisnickoIme} je obrisan.");
 
             return $"Uspjesno ste obrisali korisnika {user.KorisnickoIme}.";

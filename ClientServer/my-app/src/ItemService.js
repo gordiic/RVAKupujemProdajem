@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const uploadItem = (upload) => {
   let r;
+  console.log("usao");
   return axios
     .post("http://localhost:55647/item/uploadItem", upload)
     .then((response) => {

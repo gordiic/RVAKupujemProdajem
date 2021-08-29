@@ -1,4 +1,5 @@
-﻿using RVAProjekat.Models;
+﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RVAProjekat.AppData
 {
-	public class DataBaseUserProvider
+	public class DataBaseUserProvider : IUserProvider
 	{
-		public static void AddUser(User user)
+		public void AddUser(User user)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -16,7 +17,7 @@ namespace RVAProjekat.AppData
 				db.SaveChanges();
 			}
 		}
-		public static List<User> RetrieveAllUsers()
+		public List<User> RetrieveAllUsers()
 		{
 			List<User> users=null;
 			using (var db = new DataBaseContext())
@@ -30,7 +31,7 @@ namespace RVAProjekat.AppData
 
 			return users;
 		}
-		public static User FindUserByUsername(string username)
+		public User FindUserByUsername(string username)
 		{
 			User user = null;
 			using (var db = new DataBaseContext())
@@ -44,7 +45,7 @@ namespace RVAProjekat.AppData
 			}
 			return user;
 		}
-		public static User FindUserById(int id)
+		public User FindUserById(int id)
 		{
 			User user = null;
 			using (var db = new DataBaseContext())
@@ -58,7 +59,7 @@ namespace RVAProjekat.AppData
 			}
 			return user;
 		}
-		public static void UpdateUser(User user)
+		public void UpdateUser(User user)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -67,7 +68,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static void RemoveAllUsersFromTable()
+		public void RemoveAllUsersFromTable()
 		{
 			List<User> users = RetrieveAllUsers();
 			using (var db = new DataBaseContext())
@@ -80,7 +81,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public  static void DeleteUser(int id)
+		public  void DeleteUser(int id)
 		{
 			User u = FindUserById(id);
 			using (var db = new DataBaseContext())

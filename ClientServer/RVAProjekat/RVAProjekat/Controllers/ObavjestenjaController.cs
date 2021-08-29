@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RVAProjekat.AppData;
+using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.Logger;
 using RVAProjekat.Models;
 using System;
@@ -14,6 +16,8 @@ namespace RVAProjekat.Controllers
 	public class ObavjestenjaController : ControllerBase
 	{
 		private readonly ILoggerManager _logger;
+		private IItemProvider itemProvider = ItemProviderStrategy.GetStrategy();
+		private INotificationProvider notificationProvider = NotificationProviderStrategy.GetStrategy();
 		public ObavjestenjaController(ILoggerManager logger)
 		{
 			_logger = logger;
@@ -23,7 +27,7 @@ namespace RVAProjekat.Controllers
 		[Route("uploadObavjestenje")]
 		public IActionResult UploadObavjestenje([FromBody] Obavjestenje obavjestenje)
 		{
-			List<Obavjestenje> obavjestenja = DataBaseNotificationProvider.RetrieveAllObavjestenja();
+			List<Obavjestenje> obavjestenja = notificationProvider.RetrieveAllObavjestenja();
 			if(obavjestenje.Opis.Contains("zeli da kupi artikal"))
 			{
 				foreach (Obavjestenje o in obavjestenja)
@@ -34,7 +38,7 @@ namespace RVAProjekat.Controllers
 						return Ok("Vec ste poslali zahtjev za kupovinu datog artikla.");
 					}
 				}
-				DataBaseNotificationProvider.AddObavjestenje(obavjestenje);
+				notificationProvider.AddObavjestenje(obavjestenje);
 				_logger.LogInformation($"Korisnik {obavjestenje.OdkogaIme} zeli da kupi proizvod od korisnika {obavjestenje.KomeIme}.");
 				return Ok($"Uspjesno ste poslali zahtjev za kupovinu artikla korisnika {obavjestenje.KomeIme}.");
 			}
@@ -43,9 +47,9 @@ namespace RVAProjekat.Controllers
 				string[] strs = obavjestenje.Opis.Split('|');
 				int br = int.Parse(strs[1]);
 				obavjestenje.Opis = strs[0];
-				DataBaseNotificationProvider.DeleteObavjestenje(br);
+				notificationProvider.DeleteObavjestenje(br);
 
-				DataBaseNotificationProvider.AddObavjestenje(obavjestenje);
+				notificationProvider.AddObavjestenje(obavjestenje);
 				//DataBaseProvider.DeleteItem(new Id(obavjestenje.IdArtikla));
 				_logger.LogInformation($"Korisnik {obavjestenje.OdkogaIme} odobrava korisniku {obavjestenje.KomeIme} kupovinu artikla.");
 				return Ok($"Uspjesno odobrili kupovinu artikla korisniku {obavjestenje.KomeIme}.");
@@ -54,9 +58,9 @@ namespace RVAProjekat.Controllers
 				string[] strs = obavjestenje.Opis.Split('|');
 				int br = int.Parse(strs[1]);
 				obavjestenje.Opis = strs[0];
-				DataBaseNotificationProvider.DeleteObavjestenje(br);
+				notificationProvider.DeleteObavjestenje(br);
 
-				DataBaseNotificationProvider.AddObavjestenje(obavjestenje);
+				notificationProvider.AddObavjestenje(obavjestenje);
 				_logger.LogInformation($"Korisnik {obavjestenje.OdkogaIme} odbija korisniku {obavjestenje.KomeIme} kupovinu artikla.");
 				return Ok($"Uspjesno odbili kupovinu artikla korisniku {obavjestenje.KomeIme}.");
 			}
@@ -69,12 +73,12 @@ namespace RVAProjekat.Controllers
 		[Route("getObavjestenjaForUser")]
 		public IEnumerable<Obavjestenje> GetObavjestenjaForUser(int id)
 		{
-			List<Obavjestenje> obavjestenja = DataBaseNotificationProvider.FindObavjestenjaByUserId(id);
+			List<Obavjestenje> obavjestenja = notificationProvider.FindObavjestenjaByUserId(id);
 			foreach(Obavjestenje o in obavjestenja)
 			{
 				if(o.Opis== "zeli da kupi artikal" || o.Opis == "odobrava kupovinu artikla")
 				{
-					Item i = DataBaseItemProvider.FindItemById(o.IdArtikla);
+					Item i = itemProvider.FindItemById(o.IdArtikla);
 					o.Opis = o.Opis + " " + i.Naslov;
 				}
 			}
@@ -95,14 +99,14 @@ namespace RVAProjekat.Controllers
 		[Route("obrisiObavjestenje")]
 		public string ObrisiObavjestenje(int id)
 		{
-			Obavjestenje o = DataBaseNotificationProvider.FindObavjestenjeById(id);
+			Obavjestenje o = notificationProvider.FindObavjestenjeById(id);
 			if (o == null)
 			{
 				_logger.LogError($"Pokusaj brisanja nepostojeceg obavjestenja.");
 				return "Ne moze se obrisati obavjestenje koje ne postoji.";
 			}
 			_logger.LogInformation($"Korisnik {o.KomeIme} brise obavjestenje .");
-			DataBaseNotificationProvider.DeleteObavjestenje(id);
+			notificationProvider.DeleteObavjestenje(id);
 			return "Uspjesno ste obrisali obavjestenje.";
 		}
 	}

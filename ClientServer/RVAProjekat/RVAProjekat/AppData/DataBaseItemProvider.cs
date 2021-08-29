@@ -1,4 +1,5 @@
-﻿using RVAProjekat.Models;
+﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace RVAProjekat.AppData
 {
-	public class DataBaseItemProvider
+	public class DataBaseItemProvider : IItemProvider
 	{
 
-		public static void AddItem(Item item)
+		public void AddItem(Item item)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -17,7 +18,7 @@ namespace RVAProjekat.AppData
 				db.SaveChanges();
 			}
 		}
-		public static List<Item> RetrieveAllItems()
+		public List<Item> RetrieveAllItems()
 		{
 			List<Item> items=null;
 			using (var db = new DataBaseContext())
@@ -30,7 +31,7 @@ namespace RVAProjekat.AppData
 				items = new List<Item>();
 			return items;
 		}
-		public static Item FindItemById(int id)
+		public Item FindItemById(int id)
 		{
 			Item item = null;
 			using (var db = new DataBaseContext())
@@ -39,7 +40,7 @@ namespace RVAProjekat.AppData
 			}
 			return item;
 		}
-		public static List<Item> FindItemsByUserId(int id)
+		public List<Item> FindItemsByUserId(int id)
 		{
 			List<Item> items = null;
 			using (var db = new DataBaseContext())
@@ -55,7 +56,7 @@ namespace RVAProjekat.AppData
 			return items;
 		}
 
-		public static Item FindItemByName(string name)
+		public Item FindItemByName(string name)
 		{
 			List<Item> items = null;
 			using (var db = new DataBaseContext())
@@ -79,7 +80,7 @@ namespace RVAProjekat.AppData
 			return new Item();
 
 		}
-		public static void UpdateItem(Item item)
+		public void UpdateItem(Item item)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -87,7 +88,7 @@ namespace RVAProjekat.AppData
 				db.SaveChanges();
 			}
 		}
-		public static bool DeleteItem(int id)
+		public bool DeleteItem(int id)
 		{
 			using (var db = new DataBaseContext())
 			{
@@ -101,7 +102,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static void RemoveAllItemsFromTable()
+		public void RemoveAllItemsFromTable()
 		{
 			List<Item> items = RetrieveAllItems();
 			using (var db = new DataBaseContext())
@@ -114,7 +115,7 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public static void DeleteUserItems(int id)
+		public void DeleteUserItems(int id)
 		{
 			List<Item> items = FindItemsByUserId(id);
 

@@ -15,20 +15,21 @@ import {
   Button,
   Td,
 } from "@chakra-ui/react";
-// import {
-//   PhoneIcon,
-//   AddIcon,
-//   WarningIcon,
-//   ChevronDownIcon,
-//   SearchIcon,
-//   EmailIcon,
-//   InfoIcon,
-//   LockIcon,
-// } from "@chakra-ui/icons";
+import {
+  PhoneIcon,
+  AddIcon,
+  WarningIcon,
+  ChevronDownIcon,
+  SearchIcon,
+  EmailIcon,
+  CopyIcon,
+  ViewIcon,
+  DeleteIcon,
+} from "@chakra-ui/icons";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { convertToObject } from "typescript";
 import PreledOglasa from "./PregledOglasa";
-import { deleteItem } from "./ItemService";
+import { deleteItem, uploadItem } from "./ItemService";
 const Tabela = (props) => {
   let logs = JSON.parse(localStorage.getItem("logs"));
 
@@ -38,6 +39,32 @@ const Tabela = (props) => {
 
   const pregled = (item) => {
     return <PreledOglasa />;
+  };
+  const kopirajItem = (props) => {
+    console.log(props);
+    uploadItem(props).then((item) => {
+      logs = JSON.parse(localStorage.getItem("logs"));
+      var date = new Date();
+      logs.push({
+        datum:
+          date.getDate() +
+          "/" +
+          (date.getMonth() + 1) +
+          "/" +
+          date.getFullYear(),
+        vrijeme:
+          date.getHours() +
+          "h " +
+          date.getMinutes() +
+          "m " +
+          date.getSeconds() +
+          "s",
+        poruka: item,
+      });
+      window.localStorage.setItem("logs", JSON.stringify(logs));
+      alert(item);
+      window.location.href = "./";
+    });
   };
   const obrisiItem = (props) => {
     console.log(props);
@@ -114,12 +141,13 @@ const Tabela = (props) => {
                   <Td>
                     <Stack direction="row">
                       <Button
+                        colorScheme="red"
                         onClick={() =>
                           (window.location.href =
                             "./PregledOglasa?i=" + item.id)
                         }
                       >
-                        Pogledaj
+                        <ViewIcon />
                       </Button>
                       {user !== null && (
                         <>
@@ -128,11 +156,21 @@ const Tabela = (props) => {
                               {user.id === item.userId && (
                                 <>
                                   <Button
+                                    colorScheme="red"
                                     onClick={() => {
                                       obrisiItem(id);
                                     }}
                                   >
-                                    Obrisi
+                                    <DeleteIcon />
+                                  </Button>
+                                  <Button
+                                    colorScheme="red"
+                                    onClick={() => {
+                                      kopirajItem(item);
+                                    }}
+                                  >
+                                    {" "}
+                                    <CopyIcon />
                                   </Button>
                                 </>
                               )}
@@ -145,11 +183,20 @@ const Tabela = (props) => {
                           {user.uloga === "admin" && (
                             <>
                               <Button
+                                colorScheme="red"
                                 onClick={() => {
                                   obrisiItem(id);
                                 }}
                               >
-                                Obrisi
+                                <DeleteIcon />
+                              </Button>
+                              <Button
+                                colorScheme="red"
+                                onClick={() => {
+                                  kopirajItem(item);
+                                }}
+                              >
+                                <CopyIcon />
                               </Button>
                             </>
                           )}
