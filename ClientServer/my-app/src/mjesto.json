@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "naziv": "Sokolac"
+  },
+  {
+    "id": 2,
+    "naziv": "Srpsko Sarajevo"
+  },
+  {
+    "id": 3,
+    "naziv": "Foca"
+  },
+  {
+    "id": 4,
+    "naziv": "Rogatica"
+  },
+  {
+    "id": 5,
+    "naziv": "Han Pijesak"
+  },
+  {
+    "id": 6,
+    "naziv": "Pale"
+  },
+  {
+    "id": 7,
+    "naziv": "Vlasenica"
+  },
+  {
+    "id": 8,
+    "naziv": "Milici"
+  },
+  {
+    "id": 9,
+    "naziv": "Zvornik"
+  },
+  {
+    "id": 10,
+    "naziv": "Bijeljina"
+  },
+  {
+    "id": 11,
+    "naziv": "Doboj"
+  },
+  {
+    "id": 12,
+    "naziv": "Banja Luka"
+  },
+  {
+    "id": 13,
+    "naziv": "Prijedor"
+  },
+  {
+    "id": 14,
+    "naziv": "Gradiska"
+  },
+  {
+    "id": 15,
+    "naziv": "Prnjavor"
+  },
+  {
+    "id": 16,
+    "naziv": "Gacko"
+  },
+  {
+    "id": 17,
+    "naziv": "Nevesinje"
+  },
+  {
+    "id": 18,
+    "naziv": "Trebinje"
+  },
+  {
+    "id": 19,
+    "naziv": "Ljubinje"
+  },
+  {
+    "id": 20,
+    "naziv": "Zavidovici"
+  },
+  {
+    "id": 21,
+    "naziv": "Laktasi"
+  },
+  {
+    "id": 22,
+    "naziv": "Knezevo"
+  },
+  {
+    "id": 23,
+    "naziv": "Stari Grad"
+  },
+  {
+    "id": 24,
+    "naziv": "Trnovo"
+  }
+]

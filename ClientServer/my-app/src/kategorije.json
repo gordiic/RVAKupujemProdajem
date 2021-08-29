@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "naziv": "Racunari"
+  },
+  {
+    "id": 2,
+    "naziv": "Automobili"
+  },
+  {
+    "id": 3,
+    "naziv": "Kamioni"
+  },
+  {
+    "id": 4,
+    "naziv": "Telefoni"
+  },
+  {
+    "id": 5,
+    "naziv": "Namjestaj"
+  },
+  {
+    "id": 6,
+    "naziv": "Nekretnine"
+  },
+  {
+    "id": 7,
+    "naziv": "Lov i ribolov"
+  },
+  {
+    "id": 8,
+    "naziv": "Bicikli"
+  },
+  {
+    "id": 9,
+    "naziv": "Bijela tehnika"
+  },
+  {
+    "id": 10,
+    "naziv": "Alati i orudja"
+  },
+  {
+    "id": 11,
+    "naziv": "Motocikli"
+  },
+  {
+    "id": 12,
+    "naziv": "Elektronika"
+  },
+  {
+    "id": 13,
+    "naziv": "Muzicki instrumenti"
+  },
+  {
+    "id": 14,
+    "naziv": "Nakit i satovi"
+  },
+  {
+    "id": 15,
+    "naziv": "Bicikli"
+  }
+]
