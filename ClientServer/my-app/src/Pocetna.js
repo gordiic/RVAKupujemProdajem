@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Flex, Image, useColorMode, Stack } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, useColorMode, Stack } from "@chakra-ui/react";
 import {
   PhoneIcon,
   AddIcon,
@@ -146,10 +146,17 @@ const Pocetna = () => {
     console.log(items2);
   }, [pretraga]);
   return (
-    <Flex>
+    <Flex direction="column" alignItems="center" width="100%">
       <Stack direction="column" alignContent="top">
         <Pretrazivanje fun={setPretraga} />
-        <Tabela i={items2} />
+        <Stack direction="column" alignItems="center">
+          <b>
+            <Text fontSize="4xl" textColor="red">
+              Dostupni artikli
+            </Text>
+          </b>
+          <Tabela i={items2} />
+        </Stack>
       </Stack>
     </Flex>
   );

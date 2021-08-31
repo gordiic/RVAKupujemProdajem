@@ -134,7 +134,13 @@ const PogledajKorisnika = (id) => {
   };
 
   return (
-    <Box margin={4} borderRadius="lg" borderColor="gray.300" rounded="lg">
+    <Box
+      margin={4}
+      borderRadius="lg"
+      borderColor="gray.300"
+      rounded="lg"
+      boxShadow="dark-lg"
+    >
       <Stack direction="column">
         <Stack
           padding={2}

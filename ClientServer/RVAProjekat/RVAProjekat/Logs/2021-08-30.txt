@@ -1,0 +1,84 @@
+2021-08-30 14:19:24,991 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-30 14:19:25,006 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-30 14:24:17,974 [7] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 14:24:23,181 [17] INFO  App  
+ Korisnik admin brise artikal Golf 2. 
+ 
+2021-08-30 14:25:17,370 [16] INFO  App  
+ Korisnik admin brise artikal Xiaomi note 9. 
+ 
+2021-08-30 14:27:09,533 [6] INFO  App  
+ Korisnik petar brise artikal Fap 13. 
+ 
+2021-08-30 14:27:37,736 [6] INFO  App  
+ Korisnik petar brise artikal Stap za pecanje. 
+ 
+2021-08-30 14:45:30,383 [24] INFO  App  
+ Korisnik marko brise artikal Masina za ves Gorenje. 
+ 
+2021-08-30 14:45:43,079 [24] INFO  App  
+ Korisnik marko objavljuje novi artikal Arduino. 
+ 
+2021-08-30 14:56:03,045 [16] INFO  App  
+ Profil korisnika petar je obrisan. 
+ 
+2021-08-30 14:56:15,254 [25] INFO  App  
+ Profil korisnika marko je obrisan. 
+ 
+2021-08-30 14:57:19,715 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-30 14:57:19,740 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-30 15:01:32,710 [5] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 15:06:43,781 [4] INFO  App  
+ Korisnik marko se ulogovao na sajt. 
+ 
+2021-08-30 15:15:58,290 [28] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 15:22:38,952 [41] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 16:25:49,465 [76] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 17:42:37,774 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-08-30 17:42:37,816 [1] INFO  App  
+ Starting the Host 
+ 
+2021-08-30 17:43:14,349 [10] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 17:45:05,435 [30] INFO  App  
+ Korisnik admin zeli da kupi proizvod od korisnika Petar. 
+ 
+2021-08-30 17:46:43,377 [30] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-08-30 17:47:02,541 [30] INFO  App  
+ Korisnik petar zeli da kupi proizvod od korisnika admin. 
+ 
+2021-08-30 17:47:47,937 [28] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-08-30 17:48:07,065 [27] INFO  App  
+ Korisnik admin odobrava korisniku petar kupovinu artikla. 
+ 
+2021-08-30 17:48:26,648 [26] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla. 
+ 
+2021-08-30 17:54:42,014 [28] INFO  App  
+ Korisnik admin je ocijenio korisnika petar. 
+ 

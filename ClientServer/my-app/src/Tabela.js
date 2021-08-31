@@ -14,6 +14,12 @@ import {
   Tfoot,
   Button,
   Td,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
 } from "@chakra-ui/react";
 import {
   PhoneIcon,
@@ -32,6 +38,9 @@ import PreledOglasa from "./PregledOglasa";
 import { deleteItem, uploadItem } from "./ItemService";
 const Tabela = (props) => {
   let logs = JSON.parse(localStorage.getItem("logs"));
+  const [isOpen, setIsOpen] = React.useState({ opened: false, i: 0 });
+  const onClose = () => setIsOpen({ opened: false, i: 0 });
+  const cancelRef = React.useRef();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   //const [user, setUser] = useState(localStorage.getItem("user"));
@@ -95,131 +104,166 @@ const Tabela = (props) => {
     });
   };
   return (
-    <Box
-      margin={4}
-      border="1px"
-      padding={2}
-      borderRadius="lg"
-      borderColor="gray.300"
-    >
-      <Stack border={1}>
-        <Table variant="striped" colorScheme="messenger">
-          {props.i.length === 0 && (
-            <TableCaption>Nema objavljenih pozivoda</TableCaption>
-          )}
-          {props.i.length !== 0 && (
-            <TableCaption>Objavljeni proizvodi</TableCaption>
-          )}
-          <Thead>
-            <Tr>
-              <Th></Th>
-              <Th>Naslov</Th>
-              <Th isNumeric>Kategorija</Th>
-              <Th>mjesto/Grad</Th>
-              <Th>Cijena</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {props.i.map((item) => {
-              const {
-                userId,
-                id,
-                naslov,
-                kategorija,
-                nudimTrazim,
-                cijena,
-                fiksno,
-                prihvatamZamjenu,
-                tekstOglasa,
-                //dodajteSlike: "",
-                mjestoGrad,
-                telefon,
-              } = item;
-              return (
-                <Tr>
-                  <Oglas key={id} oglas={item} />
-                  <Td>
-                    <Stack direction="row">
-                      <Button
-                        colorScheme="red"
-                        onClick={() =>
-                          (window.location.href =
-                            "./PregledOglasa?i=" + item.id)
-                        }
-                      >
-                        <ViewIcon />
-                      </Button>
-                      {user !== null && (
-                        <>
-                          {user.uloga !== "admin" && (
-                            <>
-                              {user.id === item.userId && (
-                                <>
-                                  <Button
-                                    colorScheme="red"
-                                    onClick={() => {
-                                      obrisiItem(id);
-                                    }}
-                                  >
-                                    <DeleteIcon />
-                                  </Button>
-                                  <Button
-                                    colorScheme="red"
-                                    onClick={() => {
-                                      kopirajItem(item);
-                                    }}
-                                  >
-                                    {" "}
-                                    <CopyIcon />
-                                  </Button>
-                                </>
-                              )}
-                            </>
-                          )}
-                        </>
-                      )}
-                      {user !== null && (
-                        <>
-                          {user.uloga === "admin" && (
-                            <>
-                              <Button
-                                colorScheme="red"
-                                onClick={() => {
-                                  obrisiItem(id);
-                                }}
-                              >
-                                <DeleteIcon />
-                              </Button>
-                              <Button
-                                colorScheme="red"
-                                onClick={() => {
-                                  kopirajItem(item);
-                                }}
-                              >
-                                <CopyIcon />
-                              </Button>
-                            </>
-                          )}
-                        </>
-                      )}
-                    </Stack>
-                  </Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th></Th>
-              <Th>Naslov</Th>
-              <Th isNumeric>Kategorija</Th>
-              <Th>mjesto/Grad</Th>
-              <Th>Cijena</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </Stack>
-    </Box>
+    <>
+      <Box
+        margin={4}
+        padding={2}
+        border="1px"
+        borderRadius="lg"
+        borderColor="gray.300"
+        boxShadow="dark-lg"
+      >
+        <Stack border={1}>
+          <Table variant="striped" colorScheme="messenger">
+            {props.i.length === 0 && (
+              <TableCaption>Nema objavljenih pozivoda</TableCaption>
+            )}
+            {props.i.length !== 0 && (
+              <TableCaption>Objavljeni proizvodi</TableCaption>
+            )}
+            <Thead>
+              <Tr>
+                <Th></Th>
+                <Th>Naslov</Th>
+                <Th isNumeric>Kategorija</Th>
+                <Th>mjesto/Grad</Th>
+                <Th>Cijena</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {props.i.map((item) => {
+                const {
+                  userId,
+                  id,
+                  naslov,
+                  kategorija,
+                  nudimTrazim,
+                  cijena,
+                  fiksno,
+                  prihvatamZamjenu,
+                  tekstOglasa,
+                  //dodajteSlike: "",
+                  mjestoGrad,
+                  telefon,
+                } = item;
+                return (
+                  <Tr>
+                    <Oglas key={id} oglas={item} />
+                    <Td>
+                      <Stack direction="row">
+                        <Button
+                          colorScheme="red"
+                          onClick={() =>
+                            (window.location.href =
+                              "./PregledOglasa?i=" + item.id)
+                          }
+                        >
+                          <ViewIcon />
+                        </Button>
+                        {user !== null && (
+                          <>
+                            {user.uloga !== "admin" && (
+                              <>
+                                {user.id === item.userId && (
+                                  <>
+                                    <Button
+                                      colorScheme="red"
+                                      onClick={() => {
+                                        setIsOpen({ opened: true, i: id });
+                                      }}
+                                    >
+                                      <DeleteIcon />
+                                    </Button>
+                                    <Button
+                                      colorScheme="red"
+                                      onClick={() => {
+                                        kopirajItem(item);
+                                      }}
+                                    >
+                                      {" "}
+                                      <CopyIcon />
+                                    </Button>
+                                  </>
+                                )}
+                              </>
+                            )}
+                          </>
+                        )}
+                        {user !== null && (
+                          <>
+                            {user.uloga === "admin" && (
+                              <>
+                                <Button
+                                  colorScheme="red"
+                                  onClick={() => {
+                                    setIsOpen({ opened: true, i: id });
+                                  }}
+                                >
+                                  <DeleteIcon />
+                                </Button>
+                                <Button
+                                  colorScheme="red"
+                                  onClick={() => {
+                                    kopirajItem(item);
+                                  }}
+                                >
+                                  <CopyIcon />
+                                </Button>
+                              </>
+                            )}
+                          </>
+                        )}
+                      </Stack>
+                    </Td>
+                  </Tr>
+                );
+              })}
+            </Tbody>
+            <Tfoot>
+              <Tr>
+                <Th></Th>
+                <Th>Naslov</Th>
+                <Th isNumeric>Kategorija</Th>
+                <Th>mjesto/Grad</Th>
+                <Th>Cijena</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </Stack>
+      </Box>
+      <AlertDialog
+        isOpen={isOpen.opened}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Obrisi artikal
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Da li ste sigurni da zelite da obrisete artikal?
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Otkazi
+              </Button>
+              <Button
+                colorScheme="red"
+                onClick={() => {
+                  obrisiItem(isOpen.i);
+                }}
+                ml={3}
+              >
+                Obrisi
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
+    </>
   );
 };
 

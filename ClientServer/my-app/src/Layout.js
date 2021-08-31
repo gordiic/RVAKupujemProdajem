@@ -122,12 +122,9 @@ const Layout = () => {
       </Flex>
       <Flex>
         <LijeviMeni />
-        <Stack alignContent="center">
+        <Flex direction="column" alignItems="center" width="100%" padding={10}>
           <Router>
-            <Center>
-              <Route path="/login" component={Login} />
-            </Center>
-
+            <Route path="/login" component={Login} />
             <Route exact path="/" component={Pocetna} />
             <Route path="/postaviOglas" component={PostaviOglas} />
             <Route path="/MojKp" component={MojKp} />
@@ -138,7 +135,7 @@ const Layout = () => {
             <Route path="/PregledKorisnika" component={PregledKorisnika} />
             <Route path="/Logs" component={Logs} />
           </Router>
-        </Stack>
+        </Flex>
       </Flex>
     </Box>
   );

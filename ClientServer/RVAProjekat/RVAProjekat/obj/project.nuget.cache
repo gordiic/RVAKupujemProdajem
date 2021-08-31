@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J+4/9rNK4OyItlysZOyQu1OdOuvewve+1EPWPSweAorqOamGmMnB/MDf+ECOYNdX0WSUEyqjfGbaAyfRVffb5A==",
+  "dgSpecHash": "6DdqzG235VVRSkB27MLtOffyjAFW4bp5s7loS0dBNYjekeeGNFVBvnc2ongwHG4LWfZviqmaIlLsYIXGMiZpYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nebojsa\\Desktop\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
+  "projectFilePath": "C:\\Users\\Nebojsa\\Desktop\\RVAKupujemProdajem\\ClientServer\\RVAProjekat\\RVAProjekat\\RVAProjekat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nebojsa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Nebojsa\\.nuget\\packages\\log4net\\2.0.8\\log4net.2.0.8.nupkg.sha512",

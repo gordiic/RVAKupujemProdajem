@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useToast } from "react";
+import React, { useState, useEffect } from "react";
 import { uploadOcjena } from "./OcjenaService";
 import {
   Button,
@@ -26,6 +26,12 @@ import {
   MdCheckCircle,
   MdSettings,
   IconButton,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
 } from "@chakra-ui/react";
 import { Collapse } from "@chakra-ui/transition";
 
@@ -36,8 +42,8 @@ import {
   ChevronDownIcon,
   SearchIcon,
   EmailIcon,
-  InfoIcon,
   LockIcon,
+  InfoIcon,
   StarIcon,
   ArrowRightIcon,
   ChatIcon,
@@ -49,7 +55,9 @@ import { getOcjeneForUser } from "./OcjenaService";
 const MojeOcjene = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const [items, setItems] = useState([]);
-
+  const [isOpen, setIsOpen] = React.useState(false);
+  const onClose = () => setIsOpen(false);
+  const cancelRef = React.useRef();
   useEffect(() => {
     getOcjeneForUser(user.id)
       .then((item) => {
@@ -65,6 +73,43 @@ const MojeOcjene = () => {
   return (
     <Box margin={4} borderRadius="lg" borderColor="gray.300" rounded="lg">
       <Stack direction="column">
+        <Button
+          colorScheme="red"
+          onClick={() => setIsOpen(true)}
+          alignContent="center"
+        >
+          Informacije &nbsp;
+          <InfoIcon />
+        </Button>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader
+                fontSize="lg"
+                fontWeight="bold"
+                alignItems="center"
+              >
+                <InfoIcon color="red" />
+                Informacije o ocjenama:
+              </AlertDialogHeader>
+
+              <AlertDialogBody>
+                Ukoliko budete imali puno losih ocjena i prosjek se svede ispod
+                1.5 postoji mogucnost trajnog brisanja vaseg profila!
+              </AlertDialogBody>
+
+              <AlertDialogFooter>
+                <Button ref={cancelRef} onClick={onClose}>
+                  Zatvori
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
         <List spacing={3}>
           {items.map((item) => {
             const {
