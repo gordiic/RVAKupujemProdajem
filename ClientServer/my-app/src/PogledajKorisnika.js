@@ -44,7 +44,7 @@ const PogledajKorisnika = (id) => {
   const [message, setMessage] = useState("");
   const [unos, setUnos] = useState({
     komentar: "",
-    brOcjene: NaN,
+    brOcjene: 0,
     korisnickoIme: "",
     idKorisnika: 0,
     userId: 0,
