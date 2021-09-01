@@ -1,4 +1,5 @@
 ﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,8 @@ namespace RVAProjekat.AppData
 			List<Item> items=null;
 			using (var db = new DataBaseContext())
 			{
-				var query = from c in db.Items
-							select c;
-				items = query.ToList();
+				var result = db.Items.ToList();
+				items = result;
 			}
 			if (items == null)
 				items = new List<Item>();
@@ -38,19 +38,15 @@ namespace RVAProjekat.AppData
 			{
 				item = db.Items.Find(id);
 			}
+			if (item == null)
+				item = new Item();
 			return item;
 		}
 		public List<Item> FindItemsByUserId(int id)
 		{
-			List<Item> items = null;
-			using (var db = new DataBaseContext())
-			{
-				var result = from i in db.Items
-							 where i.UserId == id
-							 select i;
-				if (result.ToList<Item>().Count > 0)
-					items = result.ToList<Item>();
-			}
+			IUserProvider userProvider = UserProviderStrategy.GetStrategy();
+
+			List<Item> items = userProvider.FindUserById(id).Items.ToList();
 			if (items == null)
 				items = new List<Item>();
 			return items;
@@ -61,11 +57,8 @@ namespace RVAProjekat.AppData
 			List<Item> items = null;
 			using (var db = new DataBaseContext())
 			{
-				var result = from i in db.Items
-							 where i.Naslov == name
-							 select i;
-				if (result.ToList<Item>().Count > 0)
-					items = result.ToList<Item>();
+				var result = db.Items.Where(a => a.Naslov== name).ToList();
+				items = result;
 			}
 			if (items == null)
 			{
@@ -104,13 +97,9 @@ namespace RVAProjekat.AppData
 
 		public void RemoveAllItemsFromTable()
 		{
-			List<Item> items = RetrieveAllItems();
 			using (var db = new DataBaseContext())
 			{
-				foreach (Item i in items)
-				{
-					db.Items.Remove(i);
-				}
+				db.Items.RemoveRange(db.Items);
 				db.SaveChanges();
 			}
 		}

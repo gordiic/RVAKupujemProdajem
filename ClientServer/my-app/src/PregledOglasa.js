@@ -46,6 +46,7 @@ import {
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { convertToObject } from "typescript";
 import { uploadObavjestenje } from "./ObavjestenjaService";
+import { getAllItems } from "./ItemService";
 const PreledOglasa = (id) => {
   let logs = JSON.parse(localStorage.getItem("logs"));
 
@@ -67,31 +68,29 @@ const PreledOglasa = (id) => {
   });
   const [message, setMessage] = useState("");
   useEffect(() => {
-    var items = JSON.parse(localStorage.getItem("items"));
+    //var items = JSON.parse(localStorage.getItem("items"));
     var string = id.location.search.replace(/[^0-9]/g, "");
     console.log(string);
     var param = parseInt(string, 10);
-    console.log(id);
-    console.log(items);
-    console.log(param);
-    for (let i = 0; i < items.length; i++) {
-      //console.log(param);
-      // console.log(items[i]);
-      if (items[i].id === param) {
-        console.log(items[i].id);
-        setItem(items[i]);
-        console.log("aaaaaaaaaaaaa");
-      }
-    }
+    getAllItems()
+      .then((item) => {
+        console.log("then");
+
+        for (let i = 0; i < item.data.length; i++) {
+          if (item.data[i].id === param) {
+            console.log(item.data[i].id);
+            setItem(item.data[i]);
+            console.log("aaaaaaaaaaaaa");
+          }
+        }
+        console.log(item.data);
+        localStorage.setItem("items", JSON.stringify(item.data));
+      })
+      .then(() => {});
   }, []);
-  //console.log(user.id + " " + item.userId);
   console.log(item);
   const [radio, setRadio] = React.useState(item.nudimTrazim);
 
-  // useEffect(() => {
-  //   setItem({ ...item, ["nudimTrazim"]: radio });
-  //   console.log(item);
-  // }, [radio]);
   const handleChange = (e) => {
     if (!e.target) {
       console.log("usao");
@@ -182,10 +181,11 @@ const PreledOglasa = (id) => {
     if (user === null) {
       window.location.href = "./login";
     } else {
+      console.log(item);
       uploadObavjestenje({
         odkogaId: user.id,
         odkogaIme: user.korisnickoIme,
-        komeId: item.userId,
+        userId: item.userId,
         komeIme: item.userName,
         opis: "zeli da kupi artikal",
         idArtikla: item.id,

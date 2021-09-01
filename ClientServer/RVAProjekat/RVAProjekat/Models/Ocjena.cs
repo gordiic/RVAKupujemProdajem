@@ -12,15 +12,15 @@ namespace RVAProjekat.Models
 		private int brOcjene;
 		private string korisnickoIme;
 		private int idKorisnika;
-		private int idKorisnikaOcijenjenog;
-
-		public Ocjena(string komentar, int brOcjene, string korisnickoIme, int idKorisnika, int idKorisnikaOcijenjenog)
+		private int? userId;
+		private User user;
+		public Ocjena(string komentar, int brOcjene, string korisnickoIme, int idKorisnika, int userId)
 		{
 			Komentar = komentar;
 			BrOcjene = brOcjene;
 			KorisnickoIme = korisnickoIme;
 			IdKorisnika = idKorisnika;
-			IdKorisnikaOcijenjenog = idKorisnikaOcijenjenog;
+			UserId = userId;
 		}
 		public Ocjena()
 		{
@@ -32,6 +32,7 @@ namespace RVAProjekat.Models
 		public int BrOcjene { get => brOcjene; set => brOcjene = value; }
 		public string KorisnickoIme { get => korisnickoIme; set => korisnickoIme = value; }
 		public int IdKorisnika { get => idKorisnika; set => idKorisnika = value; }
-		public int IdKorisnikaOcijenjenog { get => idKorisnikaOcijenjenog; set => idKorisnikaOcijenjenog = value; }
+		public int? UserId { get => userId; set => userId = value; }
+		public User User { get => user; set => user = value; }
 	}
 }

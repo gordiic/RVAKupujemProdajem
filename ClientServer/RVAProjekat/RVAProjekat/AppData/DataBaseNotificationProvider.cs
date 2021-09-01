@@ -1,4 +1,5 @@
 ﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
@@ -23,23 +24,16 @@ namespace RVAProjekat.AppData
 			List<Obavjestenje> obavjestenja;
 			using (var db = new DataBaseContext())
 			{
-				var query = from c in db.Obavjestenja
-							select c;
-				obavjestenja = query.ToList();
+				var result = db.Obavjestenja.ToList();
+				obavjestenja = result;
 			}
 			return obavjestenja;
 		}
 		public List<Obavjestenje> FindObavjestenjaByUserId(int id)
 		{
-			List<Obavjestenje> obavjestenja = null;
-			using (var db = new DataBaseContext())
-			{
-				var result = from i in db.Obavjestenja
-							 where i.KomeId == id
-							 select i;
-				if (result.ToList<Obavjestenje>().Count > 0)
-					obavjestenja = result.ToList<Obavjestenje>();
-			}
+			IUserProvider userProvider = UserProviderStrategy.GetStrategy();
+
+			List<Obavjestenje> obavjestenja= userProvider.FindUserById(id).Obavjestenja.ToList();
 			if (obavjestenja == null)
 				obavjestenja = new List<Obavjestenje>();
 			return obavjestenja;
@@ -51,6 +45,8 @@ namespace RVAProjekat.AppData
 			{
 				obavjestenje = db.Obavjestenja.Find(id);
 			}
+			if (obavjestenje == null)
+				obavjestenje = new Obavjestenje();
 			return obavjestenje;
 		}
 		public bool DeleteObavjestenje(int id)
@@ -67,18 +63,14 @@ namespace RVAProjekat.AppData
 			}
 		}
 
-		public void RemoveAllNorificationsFromTable()
+		public void RemoveAllNotificationsFromTable()
 		{
 			List<Obavjestenje> notifications = RetrieveAllObavjestenja();
 			using (var db = new DataBaseContext())
 			{
-				foreach (Obavjestenje o in notifications)
-				{
-					db.Obavjestenja.Remove(o);
-				}
+				db.Obavjestenja.RemoveRange(db.Obavjestenja);
 				db.SaveChanges();
 			}
-
 		}
 		public void DeleteUserNotifications(int id)
 		{
@@ -86,11 +78,10 @@ namespace RVAProjekat.AppData
 			List<Obavjestenje> notifications2 = null;
 			using (var db = new DataBaseContext())
 			{
-				var result = from i in db.Obavjestenja
-							 where i.OdkogaId == id
-							 select i;
-				if (result.ToList<Obavjestenje>().Count > 0)
-					notifications2 = result.ToList<Obavjestenje>();
+				var result = db.Obavjestenja.Where(a => a.OdkogaId == id).ToList();
+				notifications2 = result;
+				if (notifications== null)
+					notifications = new List<Obavjestenje>();
 				if (notifications2 == null)
 					notifications2 = new List<Obavjestenje>();
 

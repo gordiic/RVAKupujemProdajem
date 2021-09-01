@@ -1,4 +1,5 @@
 ﻿using RVAProjekat.AppData.Interfaces;
+using RVAProjekat.AppData.Strategy;
 using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,8 @@ namespace RVAProjekat.AppData
 			List<Ocjena> marks = null;
 			using (var db = new DataBaseContext())
 			{
-				var query = from u in db.Ocjenas
-							select u;
-				marks = query.ToList();
+				var result = db.Ocjenas.ToList();
+				marks = result;
 			}
 			if (marks == null)
 				marks = new List<Ocjena>();
@@ -34,52 +34,32 @@ namespace RVAProjekat.AppData
 		}
 		public List<Ocjena> FindOcjeneByUserId(int id)
 		{
-			List<Ocjena> ocjene = null;
-			using (var db = new DataBaseContext())
-			{
-				var result = from i in db.Ocjenas
-							 where i.IdKorisnikaOcijenjenog == id
-							 select i;
-				if (result.ToList<Ocjena>().Count > 0)
-					ocjene = result.ToList<Ocjena>();
-			}
-			return ocjene;
+			IUserProvider userProvider = UserProviderStrategy.GetStrategy();
+
+			List<Ocjena> marks= userProvider.FindUserById(id).Ocjene.ToList();
+			if (marks == null)
+				marks = new List<Ocjena>();
+			return marks;
 		}
 
 		public void RemoveAllOcjeneFromTable()
 		{
-			List<Ocjena> marks = RetrieveAllMarks();
 			using (var db = new DataBaseContext())
 			{
-				foreach (Ocjena o in marks)
-				{
-					db.Ocjenas.Remove(o);
-				}
+				db.Ocjenas.RemoveRange(db.Ocjenas);
 				db.SaveChanges();
 			}
 		}
 
 		public void DeleteUserMarks(int id)
 		{
-			List<Ocjena> ocjene = null;
+			List<Ocjena> ocjene = FindOcjeneByUserId(id);
 			using (var db = new DataBaseContext())
 			{
-				var result = from i in db.Ocjenas
-							 where i.IdKorisnika == id
-							 select i;
-				if (result.ToList<Ocjena>().Count > 0)
-					ocjene = result.ToList<Ocjena>();
-
-				if (ocjene == null)
-				{
-					ocjene = new List<Ocjena>();
-				}
-
 				foreach(Ocjena o in ocjene)
 				{
 					db.Ocjenas.Remove(o);
 				}
-
 				db.SaveChanges();
 			}
 		}

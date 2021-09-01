@@ -1,0 +1,111 @@
+2021-09-01 22:13:20,191 [9] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-01 22:13:40,361 [9] INFO  App  
+ Korisnik admin zeli da kupi proizvod Fap 13 od korisnika petar. 
+ 
+2021-09-01 22:14:54,945 [21] INFO  App  
+ Korisnik admin zeli da kupi proizvod Fap 13 od korisnika petar. 
+ 
+2021-09-01 22:17:12,048 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-01 22:17:12,080 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-01 22:17:31,763 [8] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-01 22:17:51,493 [10] INFO  App  
+ Korisnik admin zeli da kupi proizvod Stap za pecanje od korisnika petar. 
+ 
+2021-09-01 22:17:54,265 [4] WARN  App  
+ Korisnik admin zeli da ponovo posalje zahtjev za kupovinu artikla Stap za pecanje korisnika petar. 
+ 
+2021-09-01 22:18:38,188 [9] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-09-01 22:18:56,376 [23] INFO  App  
+ Korisnik petar odbija korisniku marko kupovinu artikla Stap za pecanje. 
+ 
+2021-09-01 22:19:01,654 [24] INFO  App  
+ Korisnik petar odbija korisniku marko kupovinu artikla Fap 13. 
+ 
+2021-09-01 22:19:21,110 [9] INFO  App  
+ Korisnik petar odobrava korisniku admin kupovinu artikla Stap za pecanje. 
+ 
+2021-09-01 22:19:45,703 [26] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-01 22:19:58,467 [26] INFO  App  
+ Korisnik admin odobrava korisniku marko kupovinu artikla Xiaomi note 9. 
+ 
+2021-09-01 22:20:05,979 [5] INFO  App  
+ Korisnik admin brise obavjestenje. 
+ 
+2021-09-01 22:23:50,116 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-01 22:23:50,144 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-01 22:24:44,400 [12] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-01 22:25:29,937 [12] INFO  App  
+ Korisnik admin zeli da kupi proizvod Fap 13 od korisnika petar. 
+ 
+2021-09-01 22:25:35,986 [12] WARN  App  
+ Korisnik admin zeli da ponovo posalje zahtjev za kupovinu artikla Fap 13 korisnika petar. 
+ 
+2021-09-01 22:27:54,698 [4] INFO  App  
+ Korisnik admin objavljuje novi artikal Mis. 
+ 
+2021-09-01 22:42:10,219 [16] INFO  App  
+ Korisnik admin zeli da kupi proizvod Stap za pecanje od korisnika petar. 
+ 
+2021-09-01 22:42:16,857 [16] WARN  App  
+ Korisnik admin zeli da ponovo posalje zahtjev za kupovinu artikla Stap za pecanje korisnika petar. 
+ 
+2021-09-01 22:42:55,376 [16] INFO  App  
+ Korisnik admin objavljuje novi artikal uuu. 
+ 
+2021-09-01 22:48:52,986 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-01 22:48:53,014 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-01 22:49:55,524 [21] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-09-01 22:54:56,910 [8] WARN  App  
+ Neuspjelo postavljanje ocjene, nepravilni parametri: brOcjene=0 , komentar=ee 
+ 
+2021-09-01 22:59:30,670 [13] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-09-01 22:59:32,261 [5] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-09-01 23:05:07,689 [9] WARN  App  
+ Neuspjelo postavljanje ocjene, nepravilni parametri: brOcjene=0 , komentar=los 
+ 
+2021-09-01 23:09:32,140 [13] WARN  App  
+ Neuspjelo postavljanje ocjene, nepravilni parametri: brOcjene=0 , komentar=dgsdb 
+ 
+2021-09-01 23:16:03,922 [12] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-09-01 23:16:18,062 [16] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-09-01 23:18:55,808 [41] INFO  App  
+ Korisnik petar odobrava korisniku marko kupovinu artikla Stap za pecanje. 
+ 
+2021-09-01 23:19:19,509 [41] INFO  App  
+ Korisnik petar brise artikal Fap 13. 
+ 
+2021-09-01 23:38:31,741 [32] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 

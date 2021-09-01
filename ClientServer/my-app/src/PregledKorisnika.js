@@ -20,9 +20,20 @@ import {
   Box,
   IconButton,
   Flex,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 
-import { StarIcon, WarningTwoIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import {
+  StarIcon,
+  WarningTwoIcon,
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ViewIcon,
+  DeleteIcon,
+} from "@chakra-ui/icons";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { convertToObject } from "typescript";
 import { getAllUsers, deleteUser } from "./UserService";
@@ -38,7 +49,7 @@ const MojeOcjene = () => {
   useEffect(() => {
     getAllUsers()
       .then((item) => {
-        console.log("then");
+        console.log(item);
         setUsers(item);
       })
       .then(() => {});
@@ -111,6 +122,7 @@ const MojeOcjene = () => {
                         <Th>Prezime</Th>
                         <Th>Korisnicko ime</Th>
                         <Th>Email</Th>
+                        <Th>Oglasi</Th>
                         <Th>
                           <StarIcon color="red" />
                           &nbsp; Ocjena
@@ -144,6 +156,27 @@ const MojeOcjene = () => {
                             <Td>{user.prezime}</Td>
                             <Td>{user.korisnickoIme}</Td>
                             <Td>{user.email}</Td>
+                            <Td>
+                              <Menu>
+                                <MenuButton bgColor="blue.400" as={Button}>
+                                  <ViewIcon />
+                                </MenuButton>
+                                <MenuList backgroundColor="blue.400">
+                                  {user.items.map((item) => {
+                                    return (
+                                      <MenuItem
+                                        onClick={() =>
+                                          (window.location.href =
+                                            "./PregledOglasa?i=" + item.id)
+                                        }
+                                      >
+                                        {item.naslov},cijena: {item.cijena}
+                                      </MenuItem>
+                                    );
+                                  })}
+                                </MenuList>
+                              </Menu>
+                            </Td>
                             {user.prosjecnaOcjena <= 1.5 && (
                               <Td textColor="red" fontSize="2xl">
                                 {Math.round(
@@ -163,7 +196,6 @@ const MojeOcjene = () => {
                                 <Button
                                   variant="solid"
                                   colorScheme="red"
-                                  rightIcon={<ArrowRightIcon />}
                                   onClick={() =>
                                     setIsOpen({
                                       opened: true,
@@ -172,7 +204,7 @@ const MojeOcjene = () => {
                                     })
                                   }
                                 >
-                                  Obrisi
+                                  <DeleteIcon />
                                 </Button>
                               </Td>
                             )}
@@ -187,6 +219,7 @@ const MojeOcjene = () => {
                         <Th>Prezime</Th>
                         <Th>Korisnicko ime</Th>
                         <Th>Email</Th>
+                        <Th>Oglasi</Th>
                         <Th>
                           <StarIcon color="red" />
                           &nbsp; Ocjena

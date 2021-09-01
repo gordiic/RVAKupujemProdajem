@@ -10,20 +10,21 @@ namespace RVAProjekat.Models
 		private int id;
 		private int odkogaId;
 		private string odkogaIme;
-		private int komeId;
-		private string komeIme;
 		private string opis;
 		private int idArtikla;
+		private string komeIme;
+		private int? userId;
+		private User user;
 
-		public Obavjestenje(int id, int odkogaId, string odkogaIme, int komeId, string komeIme, string opis, int idArtikla)
+		public Obavjestenje(int id, int odkogaId, string odkogaIme, int userId, string komeIme, string opis, int idArtikla)
 		{
 			Id = id;
 			OdkogaId = odkogaId;
 			OdkogaIme = odkogaIme;
-			KomeId = komeId;
-			KomeIme = komeIme;
 			Opis = opis;
 			IdArtikla = idArtikla;
+			UserId = userId;
+			KomeIme = komeIme;
 		}
 
 		public Obavjestenje()
@@ -34,9 +35,10 @@ namespace RVAProjekat.Models
 		public int Id { get => id; set => id = value; }
 		public int OdkogaId { get => odkogaId; set => odkogaId = value; }
 		public string OdkogaIme { get => odkogaIme; set => odkogaIme = value; }
-		public int KomeId { get => komeId; set => komeId = value; }
-		public string KomeIme { get => komeIme; set => komeIme = value; }
 		public string Opis { get => opis; set => opis = value; }
 		public int IdArtikla { get => idArtikla; set => idArtikla = value; }
+		public int? UserId { get => userId; set => userId = value; }
+		public User User { get => user; set => user = value; }
+		public string KomeIme { get => komeIme; set => komeIme = value; }
 	}
 }

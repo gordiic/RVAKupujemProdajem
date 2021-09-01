@@ -44,7 +44,6 @@ const Oglas = (props) => {
   } = props.oglas;
   return (
     <>
-      <Td></Td>
       <Td>{naslov}</Td>
       <Td>{kategorija}</Td>
       <Td>{mjestoGrad}</Td>

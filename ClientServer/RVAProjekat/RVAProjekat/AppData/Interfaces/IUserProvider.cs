@@ -11,7 +11,7 @@ namespace RVAProjekat.AppData.Interfaces
 		public void AddUser(User user);
 		public List<User> RetrieveAllUsers();
 		public User FindUserByUsername(string username);
-		public User FindUserById(int id);
+		public User FindUserById(int? id);
 		public void UpdateUser(User user);
 		public void RemoveAllUsersFromTable();
 		public void DeleteUser(int id);

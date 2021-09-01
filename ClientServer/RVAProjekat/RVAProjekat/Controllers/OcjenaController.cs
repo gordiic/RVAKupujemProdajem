@@ -33,7 +33,7 @@ namespace RVAProjekat.Controllers
 				_logger.LogWarning($"Neuspjelo postavljanje ocjene, nepravilni parametri: brOcjene={ocjena.BrOcjene} , komentar={ocjena.Komentar}");
 				return NotFound("Neuspjesno postavljen komentar.");
 			}
-			User user = userProvider.FindUserById(ocjena.IdKorisnikaOcijenjenog);
+			User user = userProvider.FindUserById(ocjena.UserId);
 			double suma = user.ProsjecnaOcjena * user.BrOcjena;
 			suma += ocjena.BrOcjene;
 			user.BrOcjena++;
@@ -51,6 +51,12 @@ namespace RVAProjekat.Controllers
 		{
 			List<Ocjena> ocjene = markProvider.FindOcjeneByUserId(id);
 
+			foreach(Ocjena o in ocjene)
+			{
+				o.User.Obavjestenja = null;
+				o.User.Ocjene = null;
+				o.User.Items = null;
+			}
 			if (ocjene == null)
 				return new List<Ocjena>();
 			else

@@ -9,7 +9,6 @@ namespace RVAProjekat.Models
 {
 	public class Item
 	{
-		private int userId;
 		private string userName;
 		private int id;
 		private string naslov;
@@ -21,6 +20,8 @@ namespace RVAProjekat.Models
 		private string tekstOglasa;
 		private string mjestoGrad;
 		private string telefon;
+		private int? userId;
+		private User user;
 
 		public Item(int userId, string userName, string naslov, string kategorija, string nudimTrazim, string cijena, bool fiksno, bool prihvatamZamjenu, string tekstOglasa, string mjestoGrad, string telefon)
 		{
@@ -40,11 +41,6 @@ namespace RVAProjekat.Models
 		{
 
 		}
-		public Item(int i)
-		{
-			UserId = i;
-		}
-
 		public int Id { get => id; set => id = value; }
 		public string UserName { get => userName; set => userName = value; }
 		public string Naslov { get => naslov; set => naslov = value; }
@@ -56,7 +52,8 @@ namespace RVAProjekat.Models
 		public string TekstOglasa { get => tekstOglasa; set => tekstOglasa = value; }
 		public string MjestoGrad { get => mjestoGrad; set => mjestoGrad = value; }
 		public string Telefon { get => telefon; set => telefon = value; }
-		public int UserId { get => userId; set => userId = value; }
+		public int? UserId { get => userId; set => userId = value; }
+		public User User { get => user; set => user = value; }
 
 		//private File dodajteSlike;
 

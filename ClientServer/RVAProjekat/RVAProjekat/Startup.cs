@@ -28,7 +28,7 @@ namespace RVAProjekat
             NotificationProviderStrategy.SetStrategy(new DataBaseNotificationProvider());
             //Inicijalizacija podataka
             InitializationOfData i = new InitializationOfData();
-            i.Initialize();
+           i.Initialize();
         }
 
         public IConfiguration Configuration { get; }

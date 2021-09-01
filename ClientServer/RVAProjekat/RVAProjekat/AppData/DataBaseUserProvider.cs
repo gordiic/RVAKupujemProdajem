@@ -1,4 +1,5 @@
-﻿using RVAProjekat.AppData.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using RVAProjekat.AppData.Interfaces;
 using RVAProjekat.Models;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,8 @@ namespace RVAProjekat.AppData
 			List<User> users=null;
 			using (var db = new DataBaseContext())
 			{
-				var query = from u in db.Users
-							select u;
-				users = query.ToList();
+				var result = db.Users.Include(a => a.Items).Include(a => a.Obavjestenja).Include(a => a.Ocjene).ToList();
+				users = result;
 			}
 			if (users == null)
 				users = new List<User>();
@@ -36,27 +36,21 @@ namespace RVAProjekat.AppData
 			User user = null;
 			using (var db = new DataBaseContext())
 			{
-				var result = from u in db.Users
-							 where u.KorisnickoIme == username
-							 select u;
-				if (result.ToList<User>().Count > 0)
-					foreach (User u in result.ToList<User>())
-						user = u;
+				var result = db.Users.Where(a => a.KorisnickoIme == username).Include(a => a.Items).Include(a=>a.Obavjestenja).Include(a=>a.Ocjene).ToList();
+				user = result[0];
 			}
 			return user;
 		}
-		public User FindUserById(int id)
+		public User FindUserById(int? id)
 		{
 			User user = null;
 			using (var db = new DataBaseContext())
 			{
-				var result = from u in db.Users
-							 where u.Id == id
-							 select u;
-				if (result.ToList<User>().Count > 0)
-					foreach (User u in result.ToList<User>())
-						user = u;
+				var result = db.Users.Where(a => a.Id == id).Include(a => a.Items).Include(a => a.Obavjestenja).Include(a => a.Ocjene).ToList();
+				user = result[0];
 			}
+			if (user == null)
+				user = new User();
 			return user;
 		}
 		public void UpdateUser(User user)

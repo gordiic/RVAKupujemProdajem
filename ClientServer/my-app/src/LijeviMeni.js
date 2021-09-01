@@ -96,9 +96,6 @@ const LijeviMeni = () => {
           </Button>
           {usr !== null && (
             <Stack direction="column" padding={4}>
-              <Button leftIcon={<EmailIcon />} boxShadow="xl">
-                Poruke
-              </Button>
               <Button
                 leftIcon={<BellIcon />}
                 onClick={MojaObavjestenja}

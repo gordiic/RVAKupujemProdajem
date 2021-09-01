@@ -16,6 +16,9 @@ namespace RVAProjekat.Models
 		private string uloga;
 		private double prosjecnaOcjena;
 		private int brOcjena;
+		private ICollection<Item> items;
+		private ICollection<Ocjena> ocjene;
+		private ICollection<Obavjestenje> obavjestenja;
 
 		public User(string ime, string prezime, string korisnickoIme, string lozinka, string email,string uloga)
 		{
@@ -24,7 +27,6 @@ namespace RVAProjekat.Models
 			KorisnickoIme = korisnickoIme;
 			Lozinka = lozinka;
 			Email = email;
-			//Uloga = (Permission)Enum.Parse(typeof(Permission),uloga);
 			Uloga = uloga;
 		}
 		public User()
@@ -41,5 +43,8 @@ namespace RVAProjekat.Models
 		public string Uloga { get => uloga; set => uloga = value; }
 		public double ProsjecnaOcjena { get => prosjecnaOcjena; set => prosjecnaOcjena = value; }
 		public int BrOcjena { get => brOcjena; set => brOcjena = value; }
+		public ICollection<Item> Items { get => items; set => items = value; }
+		public ICollection<Ocjena> Ocjene { get => ocjene; set => ocjene = value; }
+		public ICollection<Obavjestenje> Obavjestenja { get => obavjestenja; set => obavjestenja = value; }
 	}
 }

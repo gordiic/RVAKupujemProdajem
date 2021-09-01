@@ -74,7 +74,7 @@ const MojaObavjestenja = () => {
       uploadObavjestenje({
         odkogaId: user.id,
         odkogaIme: user.korisnickoIme,
-        komeId: props.odkogaId,
+        userId: props.odkogaId,
         komeIme: props.odkogaIme,
         opis: "odobrava kupovinu artikla|" + props.id,
         idArtikla: props.idArtikla,
@@ -113,7 +113,7 @@ const MojaObavjestenja = () => {
       uploadObavjestenje({
         odkogaId: user.id,
         odkogaIme: user.korisnickoIme,
-        komeId: props.odkogaId,
+        userId: props.odkogaId,
         komeIme: props.odkogaIme,
         opis: "odbija kupovinu artikla|" + props.id,
         idArtikla: props.idArtikla,
@@ -234,6 +234,18 @@ const MojaObavjestenja = () => {
                     </>
                   )}
                   {item.opis.includes("odbija kupovinu artikla") && (
+                    <>
+                      <Button
+                        variant="solid"
+                        colorScheme="red"
+                        rightIcon={<ArrowRightIcon />}
+                        onClick={() => Obrisi(item)}
+                      >
+                        Obrisi
+                      </Button>
+                    </>
+                  )}
+                  {item.opis.includes("je prodat drugom korisniku") && (
                     <>
                       <Button
                         variant="solid"

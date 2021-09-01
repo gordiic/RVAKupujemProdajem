@@ -41,10 +41,10 @@ namespace RVAProjekat.Controllers
 			else
 			{
                 itemProvider.AddItem(item);           
+                User u = userProvider.FindUserById(item.UserId);
+                _logger.LogInformation($"Korisnik {u.KorisnickoIme} objavljuje novi artikal {item.Naslov}.");
+                return Ok($"Uspjesno ste objavili artikal {item.Naslov}.");
 			}
-            User u = userProvider.FindUserById(item.UserId);
-            _logger.LogInformation($"Korisnik {u.KorisnickoIme} objavljuje novi artikal {item.Naslov}.");
-            return Ok($"Uspjesno ste objavili artikal {item.Naslov}.");
         }
 
         [HttpPost]
@@ -65,12 +65,10 @@ namespace RVAProjekat.Controllers
             else
             {
                 itemProvider.UpdateItem(item);
+                User u = userProvider.FindUserById(item.UserId);
+                _logger.LogInformation($"Korisnik {u.KorisnickoIme} vrsi izmjenu artikla {item.Naslov}.");
+                return Ok($"Uspjesno ste izmijenili artikal {item.Naslov}.");
             }
-            User u = userProvider.FindUserById(item.UserId);
-
-            _logger.LogInformation($"Korisnik {u.KorisnickoIme} vrsi izmjenu artikla {item.Naslov}.");
-
-            return Ok($"Uspjesno ste izmijenili artikal {item.Naslov}.");
         }
 
         [HttpGet]
@@ -81,8 +79,16 @@ namespace RVAProjekat.Controllers
 
             if (items == null)
                 return new List<Item>();
-            else
+			else
+			{
+                foreach(Item i in items)
+				{
+                    i.User.Obavjestenja = null;
+                    i.User.Items = null;
+                    i.User.Ocjene = null;
+                }
                 return items.ToArray();
+			}
         }
 
         [HttpGet]

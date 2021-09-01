@@ -13,7 +13,7 @@ namespace RVAProjekat.AppData.Interfaces
 		public List<Obavjestenje> FindObavjestenjaByUserId(int id);
 		public Obavjestenje FindObavjestenjeById(int id);
 		public bool DeleteObavjestenje(int id);
-		public void RemoveAllNorificationsFromTable();
+		public void RemoveAllNotificationsFromTable();
 		public void DeleteUserNotifications(int id);
 
 	}

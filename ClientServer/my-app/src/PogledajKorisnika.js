@@ -41,12 +41,13 @@ import { convertToObject } from "typescript";
 import { getUserById } from "./UserService";
 const PogledajKorisnika = (id) => {
   let logs = JSON.parse(localStorage.getItem("logs"));
+  const [message, setMessage] = useState("");
   const [unos, setUnos] = useState({
     komentar: "",
-    brOcjene: 0,
+    brOcjene: NaN,
     korisnickoIme: "",
     idKorisnika: 0,
-    idKorisnikaOcijenjenog: 0,
+    userId: 0,
   });
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const [user2, setUser2] = useState({
@@ -75,7 +76,7 @@ const PogledajKorisnika = (id) => {
             brOcjene: 0,
             korisnickoIme: user.korisnickoIme,
             idKorisnika: user.id,
-            idKorisnikaOcijenjenog: param,
+            userId: param,
           });
         }
       });
@@ -95,7 +96,7 @@ const PogledajKorisnika = (id) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (unos.prosjecnaOcjena !== "" && unos.komentar !== "") {
+    if (unos.brOcjene !== 0 && unos.komentar !== "") {
       uploadOcjena(unos).then((item) => {
         logs = JSON.parse(localStorage.getItem("logs"));
         var date = new Date();
@@ -118,6 +119,7 @@ const PogledajKorisnika = (id) => {
 
         window.localStorage.setItem("logs", JSON.stringify(logs));
         alert(item);
+        setMessage("");
       });
 
       var suma = user2.prosjecnaOcjena * user2.brOcjena;
@@ -130,6 +132,8 @@ const PogledajKorisnika = (id) => {
         ["brOcjena"]: br,
       });
       setUnos({ ...unos, ["komentar"]: "", ["brOcjene"]: 0 });
+    } else {
+      setMessage("Unesite sve parametre.");
     }
   };
 
@@ -177,11 +181,10 @@ const PogledajKorisnika = (id) => {
                 <Text>Ocijeni korisnika:</Text>
                 <Stack direction="row" alignItems="center">
                   <StarIcon color="red" />
-                  <Select
-                    placeholder="Ocjena"
-                    name="brOcjene"
-                    onChange={handleChange}
-                  >
+                  <Select name="brOcjene" onChange={handleChange}>
+                    <option value={0} selected>
+                      0
+                    </option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -209,6 +212,14 @@ const PogledajKorisnika = (id) => {
                   Ocijeni
                 </Button>
               </form>
+              <Center>
+                {message && (
+                  <Alert status="error">
+                    <AlertIcon />
+                    {message}
+                  </Alert>
+                )}
+              </Center>
             </Stack>
           )}
         </Stack>

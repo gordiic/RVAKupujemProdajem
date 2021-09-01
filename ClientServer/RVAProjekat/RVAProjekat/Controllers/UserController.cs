@@ -38,6 +38,18 @@ namespace RVAProjekat.Controllers
                     if (user.Lozinka == u.Lozinka)
 					{
                         _logger.LogInformation($"Korisnik {user.KorisnickoIme} se ulogovao na sajt.");
+                        foreach(Item i in user.Items)
+						{
+                            i.User = null;
+						}
+                        foreach (Obavjestenje o in user.Obavjestenja)
+                        {
+                            o.User= null;
+                        }
+                        foreach (Ocjena o in user.Ocjene)
+                        {
+                            o.User = null;
+                        }
                         return Ok(user);
 					}
 					else
@@ -103,8 +115,22 @@ namespace RVAProjekat.Controllers
 
             if (user == null)
                 return new User();
-            else
+			else
+			{
+                foreach (Item i in user.Items)
+                {
+                    i.User = null;
+                }
+                foreach (Obavjestenje o in user.Obavjestenja)
+                {
+                    o.User = null;
+                }
+                foreach (Ocjena o in user.Ocjene)
+                {
+                    o.User = null;
+                }
                 return user;
+            }
         }
 
         [HttpGet]
@@ -118,7 +144,24 @@ namespace RVAProjekat.Controllers
         [Route("getAllUsers")]
         public IEnumerable<User> GetAllUsers()
         {
-            return userProvider.RetrieveAllUsers().ToArray();
+            List<User>users = userProvider.RetrieveAllUsers();
+            foreach(User u in users)
+			{
+                foreach (Item i in u.Items)
+                {
+                    i.User = null;
+                }
+                foreach (Obavjestenje o in u.Obavjestenja)
+                {
+                    o.User = null;
+                }
+                foreach (Ocjena o in u.Ocjene)
+                {
+                    o.User = null;
+                }
+            }
+
+            return users.ToArray();
         }
 
 

@@ -17,16 +17,17 @@ namespace RVAProjekat.InicijalizacijaZaProlaz
 		private INotificationProvider notificationProvider = NotificationProviderStrategy.GetStrategy();
 		public void Initialize()
 		{
-			userProvider.RemoveAllUsersFromTable();
 			itemProvider.RemoveAllItemsFromTable();
 			markProvider.RemoveAllOcjeneFromTable();
-			notificationProvider.RemoveAllNorificationsFromTable();
-
+			notificationProvider.RemoveAllNotificationsFromTable();
+			userProvider.RemoveAllUsersFromTable();
+			;
 			if (userProvider.RetrieveAllUsers().Count == 0)
 			{
 				userProvider.AddUser(new User("Nebojsa","Gordic","admin","admin","admin@gmail.com","admin"));
 				userProvider.AddUser(new User("Petar", "Petrovic", "petar", "petar", "petar@gmail.com", "user"));
 				userProvider.AddUser(new User("Marko", "Markovic", "marko", "marko", "marko@gmail.com", "user"));
+
 			}
 
 			if (itemProvider.RetrieveAllItems().Count == 0)
@@ -66,13 +67,12 @@ namespace RVAProjekat.InicijalizacijaZaProlaz
 			}
 			if (notificationProvider.RetrieveAllObavjestenja().Count == 0)
 			{
-				notificationProvider.AddObavjestenje(new Obavjestenje(0, userProvider.FindUserByUsername("petar").Id, "petar", userProvider.FindUserByUsername("admin").Id, "admin", "zeli da kupi artikal", itemProvider.FindItemByName("Golf 2").Id));
+				notificationProvider.AddObavjestenje(new Obavjestenje(0, userProvider.FindUserByUsername("petar").Id, "petar", userProvider.FindUserByUsername("admin").Id, "admin", "zeli da kupi artikal", itemProvider.FindItemByName("Xiaomi note 9").Id));
 				notificationProvider.AddObavjestenje(new Obavjestenje(0, userProvider.FindUserByUsername("marko").Id, "marko", userProvider.FindUserByUsername("admin").Id, "admin", "zeli da kupi artikal", itemProvider.FindItemByName("Xiaomi note 9").Id));
 
 				notificationProvider.AddObavjestenje(new Obavjestenje(0, userProvider.FindUserByUsername("marko").Id, "marko", userProvider.FindUserByUsername("petar").Id, "petar", "zeli da kupi artikal", itemProvider.FindItemByName("Fap 13").Id));
 				notificationProvider.AddObavjestenje(new Obavjestenje(0, userProvider.FindUserByUsername("marko").Id, "marko", userProvider.FindUserByUsername("petar").Id, "petar", "zeli da kupi artikal", itemProvider.FindItemByName("Stap za pecanje").Id));
 			}
-
 		}
 	}
 }
