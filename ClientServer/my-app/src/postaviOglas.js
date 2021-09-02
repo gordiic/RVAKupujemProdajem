@@ -250,15 +250,7 @@ const PostaviOglas = () => {
                 textColor="black"
               />
             </Stack>
-            <Stack
-              direction="row"
-              border="1px"
-              borderColor="gray.300"
-              padding={2}
-              borderRadius="lg"
-            >
-              <Input type="img" multiple />
-            </Stack>
+
             <Stack
               direction="row"
               border="1px"

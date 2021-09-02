@@ -1,0 +1,57 @@
+2021-09-02 10:15:37,528 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-02 10:15:37,555 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-02 10:22:13,673 [10] WARN  App  
+ Pokusaj prijavljivanja sa netacnom lozinkom na korisnicko ime petar. 
+ 
+2021-09-02 10:22:20,838 [25] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-09-02 10:26:08,919 [7] INFO  App  
+ Korisnik marko se ulogovao na sajt. 
+ 
+2021-09-02 10:26:21,430 [7] INFO  App  
+ Korisnik petar se ulogovao na sajt. 
+ 
+2021-09-02 10:27:39,393 [25] INFO  App  
+ Korisnik petar odbija korisniku marko kupovinu artikla Stap za pecanje. 
+ 
+2021-09-02 10:28:07,268 [25] INFO  App  
+ Korisnik petar je ocijenio korisnika admin. 
+ 
+2021-09-02 10:28:38,338 [35] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-02 11:19:18,895 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-02 11:19:18,914 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-02 11:20:12,586 [4] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-02 13:13:57,698 [1] INFO  App  
+ Log System Initialized 
+ 
+2021-09-02 13:13:57,724 [1] INFO  App  
+ Starting the Host 
+ 
+2021-09-02 13:17:25,703 [10] INFO  App  
+ Korisnik admin se ulogovao na sajt. 
+ 
+2021-09-02 13:17:38,780 [10] INFO  App  
+ Korisnik admin vrsi izmjenu artikla Golf 222. 
+ 
+2021-09-02 13:20:55,847 [8] INFO  App  
+ Korisnik admin vrsi izmjenu artikla Golf 222. 
+ 
+2021-09-02 13:21:37,038 [13] INFO  App  
+ Korisnik adminnnn je izmijenio svoj profil. 
+ 
+2021-09-02 13:23:50,613 [13] INFO  App  
+ Korisnik adminnnn se ulogovao na sajt. 
+ 
